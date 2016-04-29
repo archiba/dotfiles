@@ -1,0 +1,2 @@
+export EDITOR='vim'
+echo "	Editor setting: $EDITOR"

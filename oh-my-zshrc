@@ -1,0 +1,4 @@
+# Include oh-my-zsh core script
+echo "Loading Core script..."
+source $ZSH/oh-my-zsh.sh
+echo "Finish!!!"
