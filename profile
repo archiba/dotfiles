@@ -25,3 +25,12 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+if [ -d "$HOME/.dotfiles/bin" ] ; then
+    PATH="$HOME/.dotfiles/bin:$PATH"
+fi
+
+if [ -f "$HOME/.profile" ]; then
+    echo "Including $HOME/.profile"
+    source "$HOME/.profile"
+fi
