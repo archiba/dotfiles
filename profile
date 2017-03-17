@@ -30,7 +30,29 @@ if [ -d "$HOME/.dotfiles/bin" ] ; then
     PATH="$HOME/.dotfiles/bin:$PATH"
 fi
 
-if [ -f "$HOME/.profile" ]; then
+if [ -f "$HOME/.profile" ] ; then
     echo "Including $HOME/.profile"
     source "$HOME/.profile"
+fi
+
+if [ -d "$HOME/.pyenv" ] ; then
+  echo "Exporting pyenv $HOME/.pyenv"
+  export PYENV_ROOT="$HOME/.pyenv"
+fi
+
+if [ -d "$PYENV_ROOT/bin" ] ; then
+  echo "Including $PYENV_ROOT/bin"
+  PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+
+if [ -d "$PYENV_ROOT/shims" ] ; then
+  echo "Including $PYENV_ROOT/shims"
+  PATH="$PYENV_ROOT/shims:$PATH"
+fi
+
+if [ -f "$PYENV_ROOT/version" ] ; then
+  echo "Setting pyenv version `cat $PYENV_ROOT/version`"
+  pyenv global `cat $PYENV_ROOT/version`
+  pyenv rehash
 fi
