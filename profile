@@ -55,4 +55,6 @@ if [ -f "$PYENV_ROOT/version" ] ; then
   echo "Setting pyenv version `cat $PYENV_ROOT/version`"
   pyenv global `cat $PYENV_ROOT/version`
   pyenv rehash
+  echo "Setting path with pyenv python bin"
+  export PATH="$PYENV_ROOT/versions/`cat $PYENV_ROOT/version`/bin:$PATH"
 fi
