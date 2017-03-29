@@ -1,0 +1,10 @@
+if [[ `uname` == "Linux" ]]; then
+
+  if [[ $IM_MODULE != "" ]]; then
+    echo "Setting IM as $IM_MODULE"
+    export GTK_IM_MODULE=$IM_MODULE
+    export XMODIFIERS=@im=$IM_MODULE
+    export QT_IM_MODULE=$IM_MODULE
+  fi
+
+fi
