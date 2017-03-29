@@ -1,19 +1,17 @@
 module.exports = {
   config: {
-    fontSize: 12
+    fontSize: 12,
     
     // settings for hyperline
-
+    copyOnSelect: true
   },
 
   plugins: [
-    "hyperpower",
     "hyper-darkmatter",
     "hyper-statusline",
     "hyperterm-dibdabs",
     "hyperlinks",
     "hyper-blink",
-    "hyperterm-tab-icons"
   ],
 
   localPlugins: [
