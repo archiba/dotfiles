@@ -12,6 +12,7 @@ module.exports = {
     "hyperterm-dibdabs",
     "hyperlinks",
     "hyper-blink",
+    "htyt"
   ],
 
   localPlugins: [

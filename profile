@@ -35,6 +35,11 @@ if [ -f "$HOME/.profile" ] ; then
     source "$HOME/.profile"
 fi
 
+if [ -f "/usr/local/bin/brew" ] ; then
+  echo "Including /usr/local/bin for Homebrew"
+  PATH="/usr/local/bin:$PATH"
+fi
+
 if [ -d "$HOME/.pyenv" ] ; then
   echo "Exporting pyenv $HOME/.pyenv"
   export PYENV_ROOT="$HOME/.pyenv"
