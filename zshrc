@@ -26,3 +26,6 @@ source "$DOTDIR/editor"
 # Include core scripts
 source "$HOME/.dotfiles/oh-my-zshrc"
 
+# Include im settings
+source "$HOME/.dotfiles/im"
+
