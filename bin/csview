@@ -1,0 +1,7 @@
+file=$1
+less=$2
+
+script="cat $file | sed -e 's/,,/, ,/g' | column -s, -t | less -#5 -N -S"
+echo $script
+$("$script")
+

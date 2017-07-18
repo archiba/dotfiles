@@ -3,15 +3,23 @@ me=$0
 dir_in=$1
 files=`ls -1 ${dir_in}`
 replacer="s/:/-/g"
+
 echo "Replacer: ${replacer}"
+echo "Script: ${me}"
+echo "Target directory: ${dir_in}"
 for f in ${files}; do
-    if [ -d ${f} ] ; then
+    echo "Check ${dir_in}/${f}"
+    if [ -d "${dir_in}/${f}" ] ; then
+        echo "Go down ${f} recursively."
         ${me} "${dir_in}/${f}"
     else
         new_f=$(echo ${f} | sed -e ${replacer})
         if [ "$f" != "$new_f" ] ; then
             echo "moving ${f} to ${new_f}"
             mv -n -v "${dir_in}/${f}" "${dir_in}/${new_f}"
+        else
+          echo "Skip moving ${f} = ${new_f}"
         fi
+        
     fi
 done

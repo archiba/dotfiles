@@ -1,0 +1,10 @@
+#!/bin/bash
+
+setup_file=$1
+
+PYTHONPATH=$PYENV_ROOT/versions/`cat $PYENV_ROOT/version`/lib/python
+INSTALL_HOME=$PYENV_ROOT/versions/`cat $PYENV_ROOT/version`
+
+echo "Installing..."
+python $setup_file install --home $INSTALL_HOME --install-data --install-scripts --install-headers --install-lib
+echo "Installation done."
