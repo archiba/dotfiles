@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
 # exists.
@@ -30,11 +31,6 @@ if [ -d "$HOME/.dotfiles/bin" ] ; then
     PATH="$HOME/.dotfiles/bin:$PATH"
 fi
 
-if [ -f "$HOME/.profile" ] ; then
-    echo "Including $HOME/.profile"
-    source "$HOME/.profile"
-fi
-
 if [ -f "/usr/local/bin/brew" ] ; then
   echo "Including /usr/local/bin for Homebrew"
   PATH="/usr/local/bin:$PATH"
@@ -58,8 +54,24 @@ fi
 
 if [ -f "$PYENV_ROOT/version" ] ; then
   echo "Setting pyenv version `cat $PYENV_ROOT/version`"
-  pyenv global `cat $PYENV_ROOT/version`
+  pyenv global `cat ${PYENV_ROOT}/version`
   pyenv rehash
   echo "Setting path with pyenv python bin"
   export PATH="$PYENV_ROOT/versions/`cat $PYENV_ROOT/version`/bin:$PATH"
+fi
+
+if [ `uname` = "Darwin" ] ; then
+    if [ -d "/usr/local/Cellar/llvm" ] ; then
+        llvm_version=`ls /usr/local/Cellar/llvm`
+        echo "Setting LLVM ${llvm_version} path."
+        export DYLD_LIBRARY_PATH=/usr/local/Cellar/llvm/${llvm_version}/lib:${DYLD_LIBRARY_PATH}
+        export LD_LIBRARY_PATH=/usr/local/Cellar/llvm/${llvm_version}/lib:${LD_LIBRARY_PATH}
+        export CPATH=/usr/local/Cellar/llvm/${llvm_version}/include:${CPATH}
+        export PATH=$PATH:/usr/local/Cellar/llvm/${llvm_version}/bin
+    fi
+fi
+
+if [ -f "$HOME/.profile" ] ; then
+    echo "Including $HOME/.profile"
+    source "$HOME/.profile"
 fi

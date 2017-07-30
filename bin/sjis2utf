@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+in_f=$1
+out_f=$2
+n=$3
+
+if [ -z ${n} ]; then
+    echo "Converting all rows in ${in_f} and storing to ${out_f}."
+    cat "${in_f}" | iconv -f shift-jis -t utf-8//ignore > "${out_f}"
+else
+    echo "Heading ${n} rows from ${in_f} and storing to ${out_f}."
+    head -n ${n} "${in_f}" | iconv -f shift-jis -t utf-8//ignore > "${out_f}"
+fi
+
