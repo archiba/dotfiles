@@ -7,7 +7,8 @@ echo 'Setting zsh directory...'
 export ZSH="$DOTDIR/oh-my-zsh"
 
 # Set zsh theme 
-ZSH_THEME="tjkirch"
+ln -sf $DOTDIR/oh-my-zsh-themes/xxf.zsh-theme $DOTDIR/oh-my-zsh/themes/
+ZSH_THEME="xxf"
 
 echo "Setting zsh theme as '$ZSH_THEME'..."
 
