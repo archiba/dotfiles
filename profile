@@ -36,9 +36,15 @@ if [ -f "/usr/local/bin/brew" ] ; then
   PATH="/usr/local/bin:$PATH"
 fi
 
+if [ -d "$HOME/.nodebrew" ] ; then
+  echo "Exporting nodebrew $HOME/.nodebrew/current/bin"
+  PATH="$HOME/.nodebrew/current/bin:$PATH"
+fi
+
 if [ -d "$HOME/.pyenv" ] ; then
   echo "Exporting pyenv $HOME/.pyenv"
   export PYENV_ROOT="$HOME/.pyenv"
+  eval "$(pyenv init -)"
 fi
 
 if [ -d "$PYENV_ROOT/bin" ] ; then

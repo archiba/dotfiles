@@ -30,3 +30,4 @@ source "$HOME/.dotfiles/oh-my-zshrc"
 # Include im settings
 source "$HOME/.dotfiles/im"
 
+export PATH="/usr/local/opt/qt/bin:$PATH"
