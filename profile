@@ -63,7 +63,7 @@ if [ -f "$PYENV_ROOT/version" ] ; then
   pyenv global `cat ${PYENV_ROOT}/version`
   pyenv rehash
   echo "Setting path with pyenv python bin"
-  export PATH="$PYENV_ROOT/versions/`head -n 1 $PYENV_ROOT/version`/bin:$PATH"
+  # export PATH="$PYENV_ROOT/versions/`head -n 1 $PYENV_ROOT/version`/bin:$PATH"
 fi
 
 if [ `uname` = "Darwin" ] ; then
